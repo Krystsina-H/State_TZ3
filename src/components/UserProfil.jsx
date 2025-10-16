@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import UserInfo from './UserInfo';
 
 const UserProfil = () => {
   const [user, setUser] = useState({
@@ -19,15 +20,12 @@ const UserProfil = () => {
   };
 
   return (
-    <div>
-      <h2>Профиль пользователя:</h2>
-      <p>Имя: {user.name}</p>
-      <p>Возраст: {user.age}</p>
-      <p>Активен: {user.isActive ? 'Да' : 'Нет'}</p>
+    <>
+      <UserInfo user={user} />
       <button onClick={changeName}>Сменить имя</button>
       <button onClick={incrementAge}>Увеличить возраст</button>
       <button onClick={changeActive}>Переключить активность</button>
-    </div>
+    </>
   );
 };
 export default UserProfil;

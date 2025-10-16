@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CartItem from './CartItem';
 
 const ShoppingCart = () => {
   const [cart, setCart] = useState([
@@ -13,34 +14,36 @@ const ShoppingCart = () => {
       )
     );
   };
-  const deletTitle = (id) => {
-    setCart(cart.filter((item) => !item.id));
+
+  const deleteTitle = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
   };
 
   const clearCart = () => {
     setCart([]);
   };
+
+  console.log('ShoppingCart перерисовывается!');
+
   return (
-    <div>
+    <>
       <h2>Корзина товаров</h2>
       {cart.length === 0 ? (
         <p>Корзина пуста</p>
       ) : (
         <>
           {cart.map((item) => (
-            <div key={item.id}>
-              <p>
-                {item.title} (Кол-во: {item.count})
-              </p>
-              <button onClick={() => increment(item.id)}>+1</button>
-              <button onClick={() => deletTitle(item.id)}>Удалить</button>
-            </div>
+            <CartItem
+              key={item.id}
+              item={item}
+              onIncrement={increment}
+              onDelete={deleteTitle}
+            />
           ))}
           <button onClick={clearCart}>Очистить корзину</button>
         </>
       )}
-    </div>
+    </>
   );
 };
-
 export default ShoppingCart;
