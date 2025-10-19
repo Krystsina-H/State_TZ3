@@ -3,14 +3,12 @@ import TaskItem from './TaskItem';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState(['Купить хлеб', 'Погулять с собакой']);
-  const randomTask = [
-    'Проветрить комнату',
-    'Заказать продукты',
-    'Написать список задач',
-    'Позвонить родителям',
-    'Приготовить ужин',
-  ];
-
+  const randomTask = () => {
+    const newTask = prompt('Введите новую задачу:');
+    if (newTask) {
+      setTasks((prev) => [...prev, newTask]);
+    }
+  };
   const changeTask = () => {
     const random = randomTask[Math.floor(Math.random() * randomTask.length)];
     setTasks([...tasks, random]);
@@ -21,9 +19,6 @@ const TaskList = () => {
       setTasks(tasks.slice(0, -1));
     }
   };
-
-  console.log('TaskList перерисовывается!');
-
   return (
     <>
       <h2>Список задач</h2>

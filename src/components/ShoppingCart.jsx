@@ -23,8 +23,6 @@ const ShoppingCart = () => {
     setCart([]);
   };
 
-  console.log('ShoppingCart перерисовывается!');
-
   return (
     <>
       <h2>Корзина товаров</h2>

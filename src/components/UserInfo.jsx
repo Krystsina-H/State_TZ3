@@ -1,6 +1,5 @@
-import React from 'react';
-const UserInfo = React.memo(({ user }) => {
-  console.log('UserInfo перерисовывается!', user.name);
+import React, { memo } from 'react';
+const UserInfo = memo(({ user }) => {
   return (
     <>
       <h3>Информация о пользователе:</h3>
