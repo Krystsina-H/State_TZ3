@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-const TaskItem = memo(({ task }) => {
+import React from 'react';
+const TaskItem = ({ task }) => {
   return <li>{task}</li>;
-});
+};
 export default TaskItem;

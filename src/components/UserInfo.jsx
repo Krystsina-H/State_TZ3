@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-const UserInfo = memo(({ user }) => {
+import React from 'react';
+const UserInfo = ({ user }) => {
   return (
     <>
       <h3>Информация о пользователе:</h3>
@@ -8,6 +8,6 @@ const UserInfo = memo(({ user }) => {
       <p>Активен: {user.isActive ? 'Да' : 'Нет'}</p>
     </>
   );
-});
+};
 
 export default UserInfo;

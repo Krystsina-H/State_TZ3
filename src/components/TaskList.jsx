@@ -3,12 +3,13 @@ import TaskItem from './TaskItem';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState(['Купить хлеб', 'Погулять с собакой']);
-  const randomTask = () => {
-    const newTask = prompt('Введите новую задачу:');
-    if (newTask) {
-      setTasks((prev) => [...prev, newTask]);
-    }
-  };
+  const randomTask = [
+    'Проветрить комнату',
+    'Заказать продукты',
+    'Написать список задач',
+    'Позвонить родителям',
+    'Приготовить ужин',
+  ];
   const changeTask = () => {
     const random = randomTask[Math.floor(Math.random() * randomTask.length)];
     setTasks([...tasks, random]);
