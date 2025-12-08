@@ -8,15 +8,15 @@ const ShoppingCart = () => {
   ]);
 
   const increment = (id) => {
-    setCart(
-      cart.map((item) =>
+    setCart((prevCart) =>
+      prevCart.map((item) =>
         item.id === id ? { ...item, count: item.count + 1 } : item
       )
     );
   };
 
   const deleteTitle = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
   const clearCart = () => {

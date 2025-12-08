@@ -10,7 +10,5 @@ const CartItem = ({ item, onIncrement, onDelete }) => {
     </>
   );
 };
-(prevProps, nextProps) => {
-  return prevProps.item.count === nextProps.item.count;
-};
+
 export default CartItem;

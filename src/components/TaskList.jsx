@@ -2,34 +2,48 @@ import React, { useState } from 'react';
 import TaskItem from './TaskItem';
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState(['Купить хлеб', 'Погулять с собакой']);
-  const randomTask = [
+  const [tasks, setTasks] = useState([
+    { id: Date.now() + Math.random(), text: 'Купить хлеб' },
+    { id: Date.now() + Math.random(), text: 'Погулять с собакой' },
+  ]);
+
+  const randomTasks = [
     'Проветрить комнату',
     'Заказать продукты',
     'Написать список задач',
     'Позвонить родителям',
     'Приготовить ужин',
   ];
-  const changeTask = () => {
-    const random = randomTask[Math.floor(Math.random() * randomTask.length)];
-    setTasks([...tasks, random]);
+
+  const addTask = () => {
+    const randomText =
+      randomTasks[Math.floor(Math.random() * randomTasks.length)];
+    setTasks((prev) => [
+      ...prev,
+      {
+        id: Date.now() + Math.random(),
+        text: randomText,
+      },
+    ]);
   };
 
-  const deleteTask = () => {
-    if (tasks.length > 0) {
-      setTasks(tasks.slice(0, -1));
-    }
+  const deleteTask = (id) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
   };
+
   return (
     <>
       <h2>Список задач</h2>
       <ul>
-        {tasks.map((task, index) => (
-          <TaskItem key={index} task={task} index={index} />
+        {tasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            task={task.text}
+            onDelete={() => deleteTask(task.id)}
+          />
         ))}
       </ul>
-      <button onClick={changeTask}>Добавить задачу</button>
-      <button onClick={deleteTask}>Удалить последнюю задачу</button>
+      <button onClick={addTask}>Добавить задачу</button>
     </>
   );
 };
