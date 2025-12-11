@@ -1,18 +1,17 @@
 import './App.css';
-import UserProfil from './components/UserProfil';
-import TaskList from './components/TaskList';
-import ShoppingCart from './components/ShoppingCart';
+import { Header } from './components/Header';
 import { useContext } from 'react';
 import { ThemeContext } from './context/ThemeContext';
+import { ControlsPanel } from './components/ControlsPanel';
+import { UserProfil } from './components/UserProfil';
 
 function App() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   return (
     <div className={`theme theme--${theme}`}>
-      <button onClick={toggleTheme}>Сменить тему</button>
+      <ControlsPanel />
+      <Header />
       <UserProfil />
-      <TaskList />
-      <ShoppingCart />
     </div>
   );
 }

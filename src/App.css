@@ -33,6 +33,15 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+.button--light {
+  background-color: #242424;
+  color: #ffffff;
+}
+
+.button--dark {
+  background-color: #ffffff;
+  color: #242424;
+}
 button:hover {
   border-color: #646cff;
 }
@@ -55,17 +64,7 @@ button:focus-visible {
   color: #ffffff;
 }
 
-.theme--dark button {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
-
 .theme--light {
   background-color: #ffffff;
-  color: #213547;
-}
-
-.theme--light button {
-  background-color: #f9f9f9;
   color: #213547;
 }
