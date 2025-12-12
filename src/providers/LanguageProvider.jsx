@@ -6,11 +6,20 @@ export const LanguageProvider = ({ children }) => {
     setLanguage((cur) => {
       if (cur === 'en') return 'ru';
       if (cur === 'ru') return 'de';
-      return 'en';
+      if (cur === 'de') return 'en';
+      return cur;
     });
   };
+  const changeLanguage = (lang) => {
+    if (['en', 'ru', 'de'].includes(lang)) {
+      setLanguage(lang);
+    }
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage }}>
+    <LanguageContext.Provider
+      value={{ language, toggleLanguage, changeLanguage }}
+    >
       {children}
     </LanguageContext.Provider>
   );
