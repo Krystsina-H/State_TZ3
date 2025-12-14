@@ -7,31 +7,23 @@ export const ControlsPanel = () => {
   const { toggleTheme, theme } = useContext(ThemeContext);
   const { changeLanguage, language, toggleLanguage } =
     useContext(LanguageContext);
-
+  const handleLanguageChange = (event) => {
+    changeLanguage(event.target.value);
+  };
   return (
     <div style={{ display: 'flex', gap: '10px' }}>
       <button className={`button--${theme}`} onClick={toggleLanguage}>
         {translations[language].changeLanguage}
       </button>
-      <button
-        className={`button--${theme} ${language === 'en' ? 'active' : ''}`}
-        onClick={() => changeLanguage('en')}
+      <select
+        className={`select--${theme}`}
+        value={language}
+        onChange={handleLanguageChange}
       >
-        EN
-      </button>
-      <button
-        className={`button--${theme} ${language === 'ru' ? 'active' : ''}`}
-        onClick={() => changeLanguage('ru')}
-      >
-        RU
-      </button>
-      <button
-        className={`button--${theme} ${language === 'de' ? 'active' : ''}`}
-        onClick={() => changeLanguage('de')}
-      >
-        DE
-      </button>
-
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="de">Deutsch</option>
+      </select>
       <button className={`button--${theme}`} onClick={toggleTheme}>
         {translations[language].changeTheme}
       </button>

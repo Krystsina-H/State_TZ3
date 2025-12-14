@@ -68,3 +68,18 @@ button:focus-visible {
   background-color: #ffffff;
   color: #213547;
 }
+.select--light {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.select--dark {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #242424;
+  color: #ffffff;
+}
